@@ -1,0 +1,32 @@
+package br.com.service;
+
+import br.com.model.Compra;
+import br.com.repository.CompraRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class CompraService {
+
+    @Autowired
+    private CompraRepository compraRepository;
+
+    public void save(Compra compra){
+        compraRepository.save(compra);
+    }
+
+    public List<Compra> findAll (){
+        return compraRepository.findAll();
+    }
+
+    public Optional<Compra> findById(String id){
+        return compraRepository.findById(id);
+    }
+
+    public void delete(String id){
+        compraRepository.deleteById(id);
+    }
+}
